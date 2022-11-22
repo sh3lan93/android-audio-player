@@ -35,8 +35,8 @@ abstract class BaseSingleListFragment<Binding : ViewDataBinding, Model : Any, Vi
         viewmodel.listResult.observe(viewLifecycleOwner) { uiState ->
             when (uiState) {
                 is Failure -> showError(uiState.error ?: getString(R.string.something_wen_wrong))
-                Loading -> showLoading()
-                is Success<*> -> showData(uiState.data as? List<Model> ?: emptyList())
+                is Loading -> showLoading()
+                is Success -> showData(uiState.data ?: emptyList())
             }
         }
     }
@@ -48,10 +48,12 @@ abstract class BaseSingleListFragment<Binding : ViewDataBinding, Model : Any, Vi
     abstract fun getAdapter(): Adapter
 
     override fun showData(data: List<Model>) {
+        hideLoading()
         getAdapter().submitList(data)
     }
 
     override fun showError(error: String) {
+        hideLoading()
         Toast.makeText(requireContext(), error, Toast.LENGTH_SHORT).show()
     }
 

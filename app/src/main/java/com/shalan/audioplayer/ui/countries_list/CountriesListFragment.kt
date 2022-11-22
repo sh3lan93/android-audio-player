@@ -1,6 +1,9 @@
 package com.shalan.audioplayer.ui.countries_list
 
 import android.os.Bundle
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.RecyclerView
 import com.shalan.audioplayer.R
 import com.shalan.audioplayer.base.fragment.BaseSingleListFragment
@@ -22,6 +25,21 @@ class CountriesListFragment :
 
     override fun onCreateInit(savedInstanceState: Bundle?) {
 
+        binding.etSearch.addTextChangedListener(onTextChanged = { text, _, _, _ ->
+            viewmodel.listResult.value?.data?.let {
+                when {
+                    text?.toString()
+                        ?.isNotEmpty() == true -> it.filter {
+                        it.countryName.lowercase().contains(text.toString().lowercase())
+                    }.also {
+                        countriesAdapter.submitList(it)
+                    }
+                    else ->
+                        countriesAdapter.submitList(it)
+                }
+            }
+
+        })
     }
 
     override fun getRecyclerView(): RecyclerView = binding.rvCountry
@@ -29,7 +47,13 @@ class CountriesListFragment :
     override fun getAdapter(): CountriesAdapter = countriesAdapter
 
     override fun showLoading() {
+        binding.gContent.visibility = GONE
+        binding.loading.visibility = VISIBLE
+    }
 
+    override fun hideLoading() {
+        binding.gContent.visibility = VISIBLE
+        binding.loading.visibility = GONE
     }
 
 

@@ -7,4 +7,6 @@ interface IFragment<Model: Any> {
     fun showData(data: Model)
 
     fun showError(error: String)
+
+    fun hideLoading()
 }

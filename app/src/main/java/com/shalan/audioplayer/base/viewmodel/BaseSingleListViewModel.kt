@@ -8,11 +8,11 @@ import io.reactivex.rxjava3.core.Single
 
 abstract class BaseSingleListViewModel<T : Any> : ViewModel(), IViewModel {
 
-    private val _listResult: MutableLiveData<UIState> by lazy {
+    private val _listResult: MutableLiveData<UIState<List<T>>> by lazy {
         MutableLiveData()
     }
 
-    val listResult: LiveData<UIState> = _listResult
+    val listResult: LiveData<UIState<List<T>>> = _listResult
 
     open fun startLogic() {
         if (_listResult.value == null)

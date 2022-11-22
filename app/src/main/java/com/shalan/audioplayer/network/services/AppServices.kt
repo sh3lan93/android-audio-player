@@ -7,6 +7,6 @@ import retrofit2.http.Query
 
 interface AppServices {
 
-    @GET("")
-    fun getCountriesList(@Query("categories") categories: String = ""): Single<AllCountries>
+    @GET("/api.php")
+    fun getCountriesList(@Query("categories") categories: String = " "): Single<AllCountries>
 }
