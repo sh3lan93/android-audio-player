@@ -8,6 +8,10 @@ import org.koin.core.context.startKoin
 
 class App : Application() {
 
+    companion object {
+        const val PAGINATION_PAGE_SIZE: Long = 10
+    }
+
     override fun onCreate() {
         super.onCreate()
         startKoin {

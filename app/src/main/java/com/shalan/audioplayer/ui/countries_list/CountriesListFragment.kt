@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shalan.audioplayer.R
 import com.shalan.audioplayer.base.fragment.BaseSingleListFragment
 import com.shalan.audioplayer.databinding.FragmentCountriesListBinding
-import com.shalan.audioplayer.network.respons.model.Country
+import com.shalan.audioplayer.network.respons.model.countries.Country
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

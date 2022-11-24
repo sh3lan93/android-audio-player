@@ -3,4 +3,7 @@
     <string name="select_country">Select Country</string>
     <string name="search">Search Country</string>
     <string name="something_wen_wrong">Something went wrong</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="radios">Radios</string>
 </resources>

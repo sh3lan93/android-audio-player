@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.shalan.audioplayer.network.respons.model.Country" />
+        <import type="com.shalan.audioplayer.network.respons.model.countries.Country" />
 
         <variable
             name="country"
-            type="Country" />
+            type="com.shalan.audioplayer.network.respons.model.countries.Country" />
 
     </data>
 

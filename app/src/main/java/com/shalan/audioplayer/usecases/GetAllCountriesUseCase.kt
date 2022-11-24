@@ -2,7 +2,7 @@ package com.shalan.audioplayer.usecases
 
 import com.shalan.audioplayer.base.usecase.BaseSingleUseCase
 import com.shalan.audioplayer.base.usecase.Param
-import com.shalan.audioplayer.network.respons.model.Country
+import com.shalan.audioplayer.network.respons.model.countries.Country
 import com.shalan.audioplayer.network.services.AppServices
 import io.reactivex.rxjava3.core.Scheduler
 import io.reactivex.rxjava3.core.Single

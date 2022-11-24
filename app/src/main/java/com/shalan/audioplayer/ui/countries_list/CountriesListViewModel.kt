@@ -3,7 +3,7 @@ package com.shalan.audioplayer.ui.countries_list
 import androidx.lifecycle.LiveData
 import com.shalan.audioplayer.base.utils.SingleLiveEvent
 import com.shalan.audioplayer.base.viewmodel.BaseSingleListViewModel
-import com.shalan.audioplayer.network.respons.model.Country
+import com.shalan.audioplayer.network.respons.model.countries.Country
 import com.shalan.audioplayer.usecases.GetAllCountriesUseCase
 import com.shalan.audioplayer.usecases.SaveUserSelectedCountryUseCase
 import io.reactivex.rxjava3.core.Single

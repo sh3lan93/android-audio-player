@@ -1,4 +1,4 @@
-package com.shalan.audioplayer.network.respons.model
+package com.shalan.audioplayer.network.respons.model.countries
 
 
 import com.squareup.moshi.Json

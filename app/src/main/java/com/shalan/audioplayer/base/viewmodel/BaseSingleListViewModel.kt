@@ -8,7 +8,7 @@ import io.reactivex.rxjava3.core.Single
 
 abstract class BaseSingleListViewModel<T : Any> : ViewModel(), IViewModel {
 
-    private val _listResult: MutableLiveData<UIState<List<T>>> by lazy {
+    protected val _listResult: MutableLiveData<UIState<List<T>>> by lazy {
         MutableLiveData()
     }
 
