@@ -1,10 +1,8 @@
 package com.shalan.audioplayer
 
 import android.app.Application
-import com.shalan.audioplayer.di.networkModule
-import com.shalan.audioplayer.di.servicesModule
-import com.shalan.audioplayer.di.useCasesModule
-import com.shalan.audioplayer.di.viewmodelsModule
+import com.shalan.audioplayer.di.*
+import org.koin.android.ext.koin.androidContext
 import org.koin.android.logger.AndroidLogger
 import org.koin.core.context.startKoin
 
@@ -13,8 +11,16 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
+            androidContext(this@App)
             logger(AndroidLogger())
-            modules(networkModule, viewmodelsModule, useCasesModule, servicesModule, networkModule)
+            modules(
+                networkModule,
+                viewmodelsModule,
+                useCasesModule,
+                servicesModule,
+                networkModule,
+                storageModule
+            )
         }
     }
 }

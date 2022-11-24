@@ -18,10 +18,14 @@ class CountriesListFragment :
     ) {
 
     private val countriesAdapter: CountriesAdapter by lazy {
-        CountriesAdapter()
+        CountriesAdapter(countryClickListener)
     }
 
     override val viewmodel: CountriesListViewModel by viewModel()
+
+    private val countryClickListener: (country: Country) -> Unit = { country ->
+        viewmodel.saveUserSelectedCountry(country)
+    }
 
     override fun onCreateInit(savedInstanceState: Bundle?) {
 
@@ -38,8 +42,11 @@ class CountriesListFragment :
                         countriesAdapter.submitList(it)
                 }
             }
-
         })
+
+        viewmodel.navigateToHome.observe(viewLifecycleOwner) {
+
+        }
     }
 
     override fun getRecyclerView(): RecyclerView = binding.rvCountry

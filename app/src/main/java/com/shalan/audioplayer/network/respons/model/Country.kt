@@ -7,7 +7,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class Country(
     @Json(name = "country_id")
-    val countryId: Int,
+    val countryId: Long,
     @Json(name = "country_image")
     val countryImage: String,
     @Json(name = "country_name")
