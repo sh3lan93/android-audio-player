@@ -12,9 +12,9 @@ interface IViewModel {
     fun <T : Any> Single<T>.async(result: MutableLiveData<UIState<T>>) {
         result.value = Loading()
         this.subscribe({
-            result.value = Success(data = it)
+            result.postValue(Success(data = it))
         }, {
-            result.value = Failure(error = it.localizedMessage)
+            result.postValue(Failure(error = it.localizedMessage))
         })
     }
 }

@@ -37,8 +37,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField("String", "BASE_URL", "\"${BASE_URL}\"")
-        buildConfigField("String", "X_RapidAPI_Key", "\"${X_RAPID_KEY}\"")
-        buildConfigField("String", "X_RapidAPI_Host", "\"${X_RAPID_HOST}\"")
+        buildConfigField("String", "RADIO_URL", "\"${RADIO_URL}\"")
         buildConfigField("String", "DEEZER_APP_ID", "\"${secretsProperties['DEEZER_APP_ID']}\"")
         buildConfigField("String", "DEEZER_SECRET_KEY", "\"${secretsProperties['DEEZER_SECRET_KEY']}\"")
         buildConfigField("String", "DEEZER_REDIRECTION_URL", "\"${secretsProperties['DEEZER_REDIRECTION_AFTER_AUTH_URL']}\"")

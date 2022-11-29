@@ -6,14 +6,26 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class Radio(
-    @Json(name = "genre")
-    val genre: String?,
-    @Json(name = "radio_id")
-    val radioId: Long,
-    @Json(name = "radio_image")
-    val radioImage: String?,
-    @Json(name = "radio_name")
-    val radioName: String,
-    @Json(name = "radio_url")
-    val radioUrl: String
-)
+    @Json(name = "id")
+    val id: String,
+    @Json(name = "md5_image")
+    val md5Image: String?,
+    @Json(name = "picture")
+    val picture: String?,
+    @Json(name = "picture_big")
+    val pictureBig: String?,
+    @Json(name = "picture_medium")
+    val pictureMedium: String?,
+    @Json(name = "picture_small")
+    val pictureSmall: String?,
+    @Json(name = "picture_xl")
+    val pictureXl: String?,
+    @Json(name = "title")
+    val title: String?,
+    @Json(name = "tracklist")
+    val tracklist: String?,
+    @Json(name = "type")
+    val type: String?
+) {
+    val radioImage: String = pictureBig ?: ""
+}

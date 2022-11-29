@@ -12,7 +12,7 @@ class RadiosAdapter : BaseAdapter<Radio, RadioItemBinding, RadioViewHolder>(diff
 
         val diffUtil = object : DiffUtil.ItemCallback<Radio>() {
             override fun areItemsTheSame(oldItem: Radio, newItem: Radio): Boolean =
-                oldItem.radioId == newItem.radioId
+                oldItem.id == newItem.id
 
             override fun areContentsTheSame(oldItem: Radio, newItem: Radio): Boolean =
                 oldItem == newItem

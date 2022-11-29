@@ -42,24 +42,14 @@
                 android:layout_marginStart="@dimen/_12dp"
                 android:layout_marginTop="@dimen/_12dp"
                 android:layout_marginEnd="@dimen/_12dp"
-                android:text="@{radio.radioName}"
+                android:layout_marginBottom="@dimen/_12dp"
+                android:text="@{radio.title}"
                 android:textAppearance="?android:textAppearanceLarge"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_radio_image"
                 tools:text="Radio Name" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
-                android:layout_marginBottom="@dimen/_12dp"
-                android:text="@{radio.genre}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@id/tv_radio_name"
-                app:layout_constraintStart_toStartOf="@id/tv_radio_name"
-                app:layout_constraintTop_toBottomOf="@id/tv_radio_name"
-                tools:text="TALK" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,8 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-const val API_KEY_HEADER = "X-RapidAPI-Key"
-const val HOST_KEY_HEADER = "X-RapidAPI-Host"
 
 const val IO_SCHEDULER = "io_scheduler"
 const val MAIN_THREAD_SCHEDULER = "main_scheduler"
@@ -38,8 +36,6 @@ val networkModule = module {
         OkHttpClient.Builder()
             .addInterceptor(
                 LoggingInterceptor.Builder()
-                    .addHeader(API_KEY_HEADER, BuildConfig.X_RapidAPI_Key)
-                    .addHeader(HOST_KEY_HEADER, BuildConfig.X_RapidAPI_Host)
                     .setLevel(Level.BODY)
                     .build()
             )
