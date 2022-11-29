@@ -17,6 +17,16 @@
         android:label="AuthFragment"
         tools:layout="@layout/fragment_auth">
 
+        <argument
+            android:name="token"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
+        <argument
+            android:name="expires"
+            app:argType="string"
+            android:defaultValue="@null"
+            app:nullable="true" />
     </fragment>
 
 </navigation>

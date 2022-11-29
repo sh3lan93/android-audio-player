@@ -1,7 +1,7 @@
 package com.shalan.audioplayer.ui.auth
 
-import android.content.Intent
 import android.os.Bundle
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
 import com.shalan.audioplayer.R
 import com.shalan.audioplayer.base.fragment.BaseFragment
@@ -23,13 +23,8 @@ class AuthFragment :
     }
 
     private fun authUser() {
-//        CustomTabsIntent.Builder().build()
-//            .launchUrl(requireContext(), NetworkingConstants.AUTHENTICATION_URL.toUri())
-        Intent(Intent.ACTION_VIEW).apply {
-            data = NetworkingConstants.AUTHENTICATION_URL.toUri()
-        }.also {
-            startActivity(it)
-        }
+        CustomTabsIntent.Builder().build()
+            .launchUrl(requireContext(), NetworkingConstants.AUTHENTICATION_URL.toUri())
     }
 
 }
