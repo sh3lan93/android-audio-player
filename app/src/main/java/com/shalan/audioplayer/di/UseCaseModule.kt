@@ -1,9 +1,6 @@
 package com.shalan.audioplayer.di
 
-import com.shalan.audioplayer.usecases.GetAllCountriesUseCase
-import com.shalan.audioplayer.usecases.GetRadiosByCountryIdUseCase
-import com.shalan.audioplayer.usecases.GetUserSelectedCountryUseCase
-import com.shalan.audioplayer.usecases.SaveUserSelectedCountryUseCase
+import com.shalan.audioplayer.usecases.*
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
@@ -35,5 +32,9 @@ val useCasesModule = module {
 
     factory {
         GetUserSelectedCountryUseCase(sharedPreferences = get())
+    }
+
+    factory {
+        SaveUserDeezerTokenUseCase(sharedPreferences = get())
     }
 }

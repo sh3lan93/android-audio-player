@@ -27,6 +27,13 @@
             app:argType="string"
             android:defaultValue="@null"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_authFragment_self"
+            app:destination="@id/authFragment" />
+        <action
+            android:id="@+id/action_authFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 
 </navigation>

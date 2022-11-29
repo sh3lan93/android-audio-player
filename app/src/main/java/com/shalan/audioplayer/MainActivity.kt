@@ -2,10 +2,10 @@ package com.shalan.audioplayer
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import com.shalan.audioplayer.ui.auth.AuthFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        Log.d(MainActivity::class.java.simpleName, "onNewIntent: ${intent?.dataString}")
+        val accessToken = getAccessToken(intent?.data?.fragment ?: "")
+        navController.navigate(AuthFragmentDirections.actionAuthFragmentSelf(token = accessToken))
     }
+
+    private fun getAccessToken(fragment: String): String? =
+        fragment.split("&").firstOrNull()?.split("=")?.lastOrNull()
 }

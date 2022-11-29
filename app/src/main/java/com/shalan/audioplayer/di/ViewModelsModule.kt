@@ -17,6 +17,6 @@ val viewmodelsModule = module {
     }
 
     viewModel {
-        AuthViewModel()
+        AuthViewModel(saveUserTokenUseCase = get())
     }
 }
