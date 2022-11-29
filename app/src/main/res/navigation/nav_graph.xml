@@ -3,11 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/countriesListFragment">
+    app:startDestination="@id/authFragment">
 
     <fragment
-        android:id="@+id/countriesListFragment"
-        android:name="com.shalan.audioplayer.ui.countries_list.CountriesListFragment"
-        tools:layout="@layout/fragment_countries_list"
-        android:label="CountriesListFragment" />
+        android:id="@+id/homeFragment"
+        android:name="com.shalan.audioplayer.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.shalan.audioplayer.ui.auth.AuthFragment"
+        android:label="AuthFragment"
+        tools:layout="@layout/fragment_auth">
+
+    </fragment>
+
 </navigation>

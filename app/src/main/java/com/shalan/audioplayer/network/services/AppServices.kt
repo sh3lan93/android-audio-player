@@ -16,6 +16,7 @@ interface AppServices {
     fun getAllRadiosByCountry(
         @Query("id") countryId: Long,
         @Query("count") count: Long = App.PAGINATION_PAGE_SIZE,
-        @Query("page") page: Long
+        @Query("page") page: Long,
+        @Query("categories") categories: String = " "
     ): Single<AllRadios>
 }

@@ -1,5 +1,6 @@
 package com.shalan.audioplayer.di
 
+import com.shalan.audioplayer.ui.auth.AuthViewModel
 import com.shalan.audioplayer.ui.countries_list.CountriesListViewModel
 import com.shalan.audioplayer.ui.home.HomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -13,5 +14,9 @@ val viewmodelsModule = module {
 
     viewModel {
         HomeViewModel(getRadiosUseCase = get(), getUserSelectedCountryUseCase = get())
+    }
+
+    viewModel {
+        AuthViewModel()
     }
 }

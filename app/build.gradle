@@ -2,9 +2,25 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+}
+
+Properties secretsProperties = new Properties()
+File secretsFiles = new File(project.rootDir, "secrets.properties")
+if (secretsFiles.exists()) {
+    secretsProperties.load(secretsFiles.newDataInputStream())
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file("${project.rootDir.path}/release-keystore.jks")
+            storePassword secretsProperties['KEYSTORE_PASS']
+            keyAlias secretsProperties['KEYSTORE_ALIAS']
+            keyPassword secretsProperties['KEYSTORE_PASS']
+        }
+    }
     buildFeatures {
         dataBinding true
     }
@@ -23,12 +39,19 @@ android {
         buildConfigField("String", "BASE_URL", "\"${BASE_URL}\"")
         buildConfigField("String", "X_RapidAPI_Key", "\"${X_RAPID_KEY}\"")
         buildConfigField("String", "X_RapidAPI_Host", "\"${X_RAPID_HOST}\"")
+        buildConfigField("String", "DEEZER_APP_ID", "\"${secretsProperties['DEEZER_APP_ID']}\"")
+        buildConfigField("String", "DEEZER_SECRET_KEY", "\"${secretsProperties['DEEZER_SECRET_KEY']}\"")
+        buildConfigField("String", "DEEZER_REDIRECTION_URL", "\"${secretsProperties['DEEZER_REDIRECTION_AFTER_AUTH_URL']}\"")
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
 
@@ -56,13 +79,16 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.squareup.moshi:moshi-kotlin:1.14.0'
     kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.14.0'
-    implementation ('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
+    implementation('com.github.ihsanbal:LoggingInterceptor:3.1.0') {
         exclude group: 'org.json', module: 'json'
     }
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
     implementation 'io.coil-kt:coil:2.2.2'
+//    implementation 'androidx.browser:browser:1.4.0'
+    implementation platform('com.google.firebase:firebase-bom:31.1.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'

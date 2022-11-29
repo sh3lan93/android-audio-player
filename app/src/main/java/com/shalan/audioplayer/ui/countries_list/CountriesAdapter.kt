@@ -6,7 +6,7 @@ import com.shalan.audioplayer.base.adapter.BaseAdapter
 import com.shalan.audioplayer.databinding.CountryItemBinding
 import com.shalan.audioplayer.network.respons.model.countries.Country
 
-class CountriesAdapter(val countryClickListener: (country: Country) -> Unit) :
+class CountriesAdapter(private val countryClickListener: (country: Country) -> Unit) :
     BaseAdapter<Country, CountryItemBinding, CountryViewHolder>(diffUtil = diffUtil) {
 
     companion object {

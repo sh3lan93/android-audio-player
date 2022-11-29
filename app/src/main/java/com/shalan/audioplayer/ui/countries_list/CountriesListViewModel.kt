@@ -14,11 +14,11 @@ class CountriesListViewModel(
 ) :
     BaseSingleListViewModel<Country>() {
 
-    private val _navigateToHome: SingleLiveEvent<Any> by lazy {
+    private val _navigateToHome: SingleLiveEvent<Boolean> by lazy {
         SingleLiveEvent()
     }
 
-    val navigateToHome: LiveData<Any> = _navigateToHome
+    val navigateToHome: LiveData<Boolean> = _navigateToHome
 
     override fun loadFromScratch(): Single<List<Country>> = getCountriesUseCase.execute(
         GetAllCountriesUseCase.Params()
