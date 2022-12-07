@@ -23,7 +23,8 @@ class App : Application() {
                 useCasesModule,
                 servicesModule,
                 networkModule,
-                storageModule
+                storageModule,
+                mockingModule
             )
         }
     }

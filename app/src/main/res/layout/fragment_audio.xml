@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.shalan.audioplayer.ui.audio.model.Radio" />
+
+        <variable
+            name="radio"
+            type="Radio" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.audio.AudioFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cv_radio"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_24dp"
+            app:cardBackgroundColor="@android:color/white"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="0.3">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_radio_image"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:img_url="@{radio.image}"
+                    app:layout_constraintBottom_toTopOf="@id/tv_radio_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/tv_radio_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10dp"
+                    android:layout_marginEnd="@dimen/_10dp"
+                    android:layout_marginBottom="@dimen/_10dp"
+                    android:text="@{radio.name}"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:text="RADIO NAME" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <View
+            android:id="@+id/v_now_playing_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@android:color/background_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_now_playing" />
+
+        <ImageView
+            android:id="@+id/iv_now_playing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent="0.15"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tv_now_playing"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12dp"
+            android:layout_marginEnd="@dimen/_12dp"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/iv_now_playing"
+            app:layout_constraintEnd_toStartOf="@id/iv_play_pause_icon"
+            app:layout_constraintStart_toEndOf="@id/iv_now_playing"
+            app:layout_constraintTop_toTopOf="@id/iv_now_playing"
+            tools:text="NOW PLAYING" />
+
+        <ImageView
+            android:id="@+id/iv_play_pause_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_12dp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_now_playing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_now_playing"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/ic_baseline_play_circle_24" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/g_now_playing"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:constraint_referenced_ids="v_now_playing_background, iv_now_playing, tv_now_playing, iv_play_pause_icon"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
